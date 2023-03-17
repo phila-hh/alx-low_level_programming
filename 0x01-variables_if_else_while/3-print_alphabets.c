@@ -7,9 +7,12 @@
  */
 int main(void)
 {
-	for (int n = 97; n < 123; n++)
+	int n;
+	int i;
+
+	for (n = 97; n < 123; n++)
 		putchar(n);
-	for (int i = 65; i < 91; i++)
+	for (i = 65; i < 91; i++)
 		putchar(i);
 	putchar('\n');
 
