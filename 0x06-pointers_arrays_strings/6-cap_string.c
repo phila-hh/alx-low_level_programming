@@ -9,33 +9,28 @@ include "main.h"
 
 char *cap_string(char *s)
 {
-	int i, j, diff;
-	int chars[50] = {' ', '\n', '\t', ',', '.', '"', ';', '!', '?',
-		 '(', ')', '{', '}'}
+	int i, x;
+	int diff = 32;
+	int sep[] = {',', ';', '.', '?', '"',
+		 '(', ')', '{', '}', ' ', '\n', '\t'};
 
-	i = 0;
-	diff = 'a' - 'A';
-	while (s[i])
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; chars[j]; j++)
+		if (s[i] >= 'a' && s[i] <= 'z')
 		{
-			if (i == 0)
-			{
-				if ('a' <= s[i] && s[i] <= 'z')
-				{
-					s[i] = s[i] - diff;
-				}
-			}
+			s[i] = s[i] - diff;
+		}
 
-			if (s[i] == chars[j])
+		diff = 0;
+
+		for (x = 0; x <= 12; x++)
+		{
+			if (s[i] == sep[x])
 			{
-				if ('a' <= s[i + 1] && s[i + 1] <= 'z')
-				{
-					s[i + 1] = s[i + 1] - diff;
-				}
+				x = 12;
+				diff = 32;
 			}
 		}
-		i++;
 	}
 
 	return (s);
