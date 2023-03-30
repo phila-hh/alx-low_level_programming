@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 
 /**
  * cap_string - capitalizes all words of a string
@@ -9,28 +9,31 @@ include "main.h"
 
 char *cap_string(char *s)
 {
-	int i, x;
-	int diff = 32;
-	int sep[] = {',', ';', '.', '?', '"',
-		 '(', ')', '{', '}', ' ', '\n', '\t'};
+	int i, diff;
 
-	for (i = 0; s[i] != '\0'; i++)
+	i = 0;
+	diff = 'a' - 'A';
+	while (s[i])
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
+		if (i == 0)
 		{
-			s[i] = s[i] - diff;
-		}
-
-		diff = 0;
-
-		for (x = 0; x <= 12; x++)
-		{
-			if (s[i] == sep[x])
+			if ('a' <= s[i] && s[i] <= 'z')
 			{
-				x = 12;
-				diff = 32;
+				s[i] = s[i] - diff;
 			}
 		}
+		if ((s[i] == ' ') || (s[i] == '\t') || (s[i] == '\n') ||
+				(s[i] == '.') || (s[i] == ',') || (s[i] == '?') ||
+				(s[i] == ';') || (s[i] == '"') || (s[i] == '(') ||
+				(s[i] == ')') || (s[i] == '{') || (s[i] == '}') ||
+				(s[i] == '!'))
+		{
+			if ('a' <= s[i + 1] && s[i + 1] <= 'z')
+			{
+				s[i + 1] = s[i + 1] - diff;
+			}
+		}
+		i++;
 	}
 
 	return (s);
