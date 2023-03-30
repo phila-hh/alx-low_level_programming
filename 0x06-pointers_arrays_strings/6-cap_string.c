@@ -9,17 +9,30 @@
 
 char *cap_string(char *s)
 {
-	int i, diff;
+	int i, j, diff;
+	int chars[20] = {' ', '\n', '\t', ',', '.', '"', ';', '!', '?',
+		'(', ')', '{', '}'}
 
 	i = 0;
 	diff = 'a' - 'A';
 	while (s[i])
 	{
-		if ((s[i] == ' ') || (s[i] == '\t') || (s[i] == '\n') || (s[i] == '.'))
+		if (i == 0)
 		{
-			if ('a' <= s[i + 1] && s[i + 1] <= 'z')
+			if ('a' <= s[i] && s[i] <= 'z')
 			{
-				s[i + 1] = s[i + 1] - diff;
+				s[i] = s[i] - diff;
+			}
+		}
+
+		for (j = 0; chars[j]; j++)
+		{
+			if (s[i] == chars[j])
+			{
+				if ('a' <= s[i + 1] && s[i + 1] <= 'z')
+				{
+					s[i + 1] = s[i + 1] - diff;
+				}
 			}
 		}
 		i++;
