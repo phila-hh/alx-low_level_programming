@@ -13,9 +13,8 @@ char *_strchr(char *s, char c)
 {
 	int i;
 	char *str;
-	int found;
+	int found = 0;
 
-	found = 0;
 	for (i = 0; s[i]; i++)
 	{
 		if (s[i] == c)
