@@ -27,10 +27,10 @@ char *_strchr(char *s, char c)
 	if (found == 1)
 	{
 		str = &s[i];
-		return (str);
 	}
 	else
 	{
-		return ('\0');
+		str = 0;
 	}
+	return (str);
 }
