@@ -59,7 +59,7 @@ int _strlen(char *s)
 	int len;
 
 	len = 0;
-	if (s[i])
+	if (s[0])
 	{
 		len++;
 		len += _strlen(s + 1);
