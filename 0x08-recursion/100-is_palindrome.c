@@ -59,9 +59,10 @@ int _strlen(char *s)
 	int i, len;
 
 	len = 0;
-	for (i = 0; s[i]; i++)
+	if (s[i])
 	{
 		len++;
+		len += _strlen(s + 1);
 	}
 	else
 	{
