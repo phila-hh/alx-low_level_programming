@@ -63,6 +63,10 @@ int _strlen(char *s)
 	{
 		len++;
 	}
+	else
+	{
+		return (0);
+	}
 
 	return (len);
 }
