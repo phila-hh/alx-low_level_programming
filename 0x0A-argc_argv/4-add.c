@@ -17,7 +17,11 @@ int main(int __attribute__((unused)) argc, char *argv[])
 
 	sum = 0;
 	i = 1;
-	while (argv[i])
+	if (argc == 1)
+	{
+		sum = 0;
+	}
+	while (argv[i] && argc > 1)
 	{
 		if (!(isdigit(*argv[i])))
 		{
