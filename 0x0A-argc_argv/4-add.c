@@ -11,7 +11,7 @@
  * Return: 1 if error is encounterd, else 0
  */
 
-int main(int __attribute__((unused)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int sum, i;
 
