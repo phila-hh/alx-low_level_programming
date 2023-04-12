@@ -11,29 +11,39 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int i;
-	int *ptr;
-	int *r;
-
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
 
-	ptr = malloc(nmemb * size);
-	for (i = 0; i < nmemb; i++)
-	{
-		r = malloc(size);
-		if (r == NULL)
-		{
-			return (NULL);
-		}
-		ptr[i] = *r;
-	}
+	void *ptr = malloc(nmemb * size);
+
 	if (ptr == NULL)
 	{
 		return (NULL);
 	}
+	_memset(ptr, 0, nmemb * size);
 
 	return (ptr);
+}
+
+/**
+ * _memset - fills memory with a constant byte
+ * @s: pointer of type char
+ * @b: constant byte
+ * @n: number size to be filled
+ *
+ * Return: pointer to the memory area s
+ */
+
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		s[i] = b;
+	}
+
+	return (s);
 }
