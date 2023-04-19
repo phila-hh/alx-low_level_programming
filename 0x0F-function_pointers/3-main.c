@@ -8,7 +8,7 @@
  * Return: Always 0 (Success)
  */
 
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	char *op;
 	int a, b, result;
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	result = (get_op_func(op))(a, b);
+	result = get_op_func(op)(a, b);
 	printf("%d\n", result);
 
 	return (0);
