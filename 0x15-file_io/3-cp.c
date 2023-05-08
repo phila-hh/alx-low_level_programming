@@ -6,13 +6,12 @@ char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
- * create_buffer - allocates 1024 bytes to a buffer
- * @file: name of the file
+ * create_buffer - allocates 1024 bytes for a buffer
+ * @file: the name of the file buffer is storing chars for
  *
- * Return: a pointer to the newly allocated buffer
+ * Return: a pointer to the newly-allocated buffer
  */
-
-xchar *create_buffer(char *file)
+char *create_buffer(char *file)
 {
 	char *buffer;
 
@@ -20,8 +19,7 @@ xchar *create_buffer(char *file)
 
 	if (buffer == NULL)
 	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
@@ -30,18 +28,17 @@ xchar *create_buffer(char *file)
 
 /**
  * close_file - closes file descriptors
- * @fd: a file descriptor to be closed
+ * @fd: the file descriptor to be closed
  *
  * Return: void
  */
-
 void close_file(int fd)
 {
-	int cl;
+	int c;
 
-	cl = close(fd);
+	c = close(fd);
 
-	if (cl == -1)
+	if (c == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
@@ -50,12 +47,11 @@ void close_file(int fd)
 
 /**
  * main - copies the contents of a file to another file
- * @argc: number of arguments
- * @argv: array 0f pointers to the arguments
+ * @argc: the number of arguments supplied to the program
+ * @argv: an array of pointers to the arguments
  *
  * Return: Always 0
  */
-
 int main(int argc, char *argv[])
 {
 	int from, to, r, w;
