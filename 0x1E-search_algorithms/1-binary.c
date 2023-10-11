@@ -23,7 +23,7 @@ void print_array(int *array, size_t start, size_t end)
                 }
                 printf("%d", array[idx]);
         }
-        print("\n");
+        printf("\n");
 }
 
 
