@@ -12,18 +12,18 @@
 
 void print_array(int *array, size_t start, size_t end)
 {
-        size_t idx;
+	size_t idx;
 
-        printf("Searching in array: ");
-        for (idx = start; idx <= end; idx++)
-        {
-                if (idx != start)
-                {
-                        printf(", ");
-                }
-                printf("%d", array[idx]);
-        }
-        printf("\n");
+	printf("Searching in array: ");
+	for (idx = start; idx <= end; idx++)
+	{
+		if (idx != start)
+		{
+			printf(", ");
+		}
+		printf("%d", array[idx]);
+	}
+	printf("\n");
 }
 
 
